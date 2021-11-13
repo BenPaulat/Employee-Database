@@ -1,6 +1,7 @@
 const Db = require('./db/index');
 const consoleTable = require('console.table');
 const inquire = require('inquirer');
+const actions = require('./utils/index');
 
 function questions() {
     inquire.prompt([
@@ -36,8 +37,9 @@ function questions() {
                 value: 'updateEmployee'
             }]
         }
-    ]) .then(answers => {
-        console.log(answers);
+    ]) .then(({initialChoice}) => {
+        if (initialChoice === 'viewDept') actions.viewDept();
+        else if (initialChoice === 'addDept') actions.addDept();
     })
 }
 questions();

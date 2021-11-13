@@ -2,7 +2,7 @@ const Db = require('../db');
 const consoleTable = require('console.table');
 const inquire = require('inquirer');
 
-function viewDept() {
+function addDept() {
     console.log('Heyoo')
     Db.findAllDepartment().then(([data]) => {
         console.log(data)
@@ -10,4 +10,4 @@ function viewDept() {
     });
 }
 
-module.exports = viewDept;
+module.exports = addDept;
