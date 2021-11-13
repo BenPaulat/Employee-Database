@@ -1,6 +1,7 @@
 const actions = {
     viewDept: require('./viewDept'),
-    addDept: require('./addDept')
+    addDept: require('./addDept'),
+    removeDept: require('./removeDept')
 }
 
 module.exports = actions;
