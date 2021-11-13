@@ -8,9 +8,8 @@ function removeDept(questions) {
         name: 'name',
         message: 'Which department should be removed?'
     }).then(answer => {
-       return Db.removeDepartment(answer);  
-    }).then((data) => {console.log(data)
-        questions()});
+       return Db.removeDepartment(answer.name);  
+    }).then((data) => questions());
 };
 
 
