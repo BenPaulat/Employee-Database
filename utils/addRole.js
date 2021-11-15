@@ -17,8 +17,8 @@ function addRole(questions) {
         type: 'list',
         name: 'department',
         message: 'What department does this role fall under?'
-    }])
-    .then(answer => {
+    }
+]).then(answer => {
         Db.addRole(answer);  
     }).then(() => questions());
 };
