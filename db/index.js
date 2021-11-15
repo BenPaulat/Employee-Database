@@ -17,6 +17,12 @@ class Db {
         )
     }
 
+    findAllRoles() {
+        return this.connection.promise().query(
+            'SELECT role.id, role.title, role.salary FROM role'
+        )
+    }
+
     removeDepartment(dept) {
         return this.connection.promise().query(
             'DELETE FROM department WHERE name = ?', dept
