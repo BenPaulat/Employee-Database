@@ -9,35 +9,35 @@ const questions = function() {
             type: 'list',
             name: 'initialChoice',
             choices: [{
-                name: 'view all departments',
+                name: 'View all departments',
                 value: 'viewDept'
             },
             {
-                name: 'view all roles',
+                name: 'View all roles',
                 value: 'viewRoles'
             },
             {
-                name: 'view all employees',
+                name: 'View all employees',
                 value: 'viewEmployees'
             },
             {
-                name: 'add a department',
+                name: 'Add a department',
                 value: 'addDept'
             },
             {
-                name: 'add a role',
+                name: 'Add a role',
                 value: 'addRole'
             },
             {
-                name: 'add an employee',
+                name: 'Add an employee',
                 value: 'addEmployee'
             },
             {
-                name: 'update an employee role',
+                name: 'Update an employee role',
                 value: 'updateEmployee'
             },
             {
-                name: 'Remove Department',
+                name: 'Remove department',
                 value: 'removeDept'
             }]
         }
