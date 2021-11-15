@@ -43,10 +43,13 @@ const questions = function() {
         }
     ]) .then(({initialChoice}) => {
         if (initialChoice === 'viewDept') actions.viewDept(questions);
-        else if (initialChoice === 'addDept') actions.addDept(questions);
         else if (initialChoice === 'viewRoles') actions.viewRoles(questions);
-
+        else if (initialChoice === 'viewEmployees') actions.viewEmployees(questions);
+        else if (initialChoice === 'addDept') actions.addDept(questions);
+        else if (initialChoice === 'addRole') actions.addRole(questions);
+        else if (initialChoice === 'addEmployee') actions.addEmployee(questions);
+        else if (initialChoice === 'updateEmployee') actions.updateEmployee(questions);
         else if (initialChoice === 'removeDept') actions.removeDept(questions);
-    })
+    });
 }
 questions();

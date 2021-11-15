@@ -11,15 +11,39 @@ class Db {
         )
     }
 
+    findAllRoles() {
+        return this.connection.promise().query(
+            'SELECT role.id, role.title, role.salary FROM role'
+        )
+    }
+
+    findAllEmployees() {
+        return this.connection.promise().query(
+            ''
+        )
+    }
+
     addDepartment(dept) {
         return this.connection.promise().query(
             'INSERT INTO department SET ?', dept
         )
     }
 
-    findAllRoles() {
+    addRole(role) {
         return this.connection.promise().query(
-            'SELECT role.id, role.title, role.salary FROM role'
+            'INSERT INTO role SET ?', role
+        )
+    }
+
+    addEmployee(employee) {
+        return this.connection.promise().query(
+            'INSERT INTO employee SET ?', employee
+        )
+    }
+
+    updateEmployee() {
+        return this.connection.promise().query(
+            '', 
         )
     }
 
