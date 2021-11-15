@@ -12,6 +12,4 @@ function removeDept(questions) {
     }).then((data) => questions());
 };
 
-
-
 module.exports = removeDept;
