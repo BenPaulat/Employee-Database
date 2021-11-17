@@ -13,13 +13,13 @@ class Db {
 
     findAllRoles() {
         return this.connection.promise().query(
-            'SELECT role.id, role.title, role.salary FROM role'
+            'SELECT role.id, role.title, department.name as department, role.salary FROM role LEFT JOIN department ON role.department_id = department.id;'
         )
     }
 
     findAllEmployees() {
         return this.connection.promise().query(
-            ''
+            'SELECT employees.id, employees.first_name, employees.last_name, role.title as title, employees.manager_id FROM employees LEFT JOIN role ON role.department_id = department.id;'
         )
     }
 
