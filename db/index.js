@@ -19,7 +19,7 @@ class Db {
 
     findAllEmployees() {
         return this.connection.promise().query(
-            'SELECT employees.id, employees.first_name, employees.last_name, role.title as title, department.name as department, employees.manager_id FROM employees LEFT JOIN role ON role.department_id = department.id;'
+            'SELECT employees.id, employees.first_name, employees.last_name, role.title AS title, department.name AS department, role.salary AS salary, CONCAT (manager.first_name, " ", manager.last_name) AS manager FROM employees LEFT JOIN role ON employees.role_id = role.id LEFT JOIN department ON role.department_id = department.id LEFT JOIN employees manager ON employees.manager_id = manager.id;'
         )
     }
 
