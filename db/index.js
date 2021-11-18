@@ -19,7 +19,7 @@ class Db {
 
     findAllEmployees() {
         return this.connection.promise().query(
-            'SELECT employees.id, employees.first_name, employees.last_name, role.title as title, employees.manager_id FROM employees LEFT JOIN role ON role.department_id = department.id;'
+            'SELECT employees.id, employees.first_name, employees.last_name, role.title as title, department.name as department, employees.manager_id FROM employees LEFT JOIN role ON role.department_id = department.id;'
         )
     }
 
@@ -29,16 +29,16 @@ class Db {
         )
     }
 
-    addRole(role) {
+    addRole(title, salary, department) {
         return this.connection.promise().query(
-            'INSERT INTO role SET ?', role
+            'INSERT INTO role SET ?'
         )
     }
 
     addEmployee(employee) {
         return this.connection.promise().query(
-            'INSERT INTO employee SET ?', employee
-        )
+            'INSERT INTO employees SET ?', employee
+        ) 
     }
 
     updateEmployee() {

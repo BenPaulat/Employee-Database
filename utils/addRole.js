@@ -19,7 +19,7 @@ function addRole(questions) {
         message: 'What department does this role fall under?'
     }
 ]).then(answer => {
-        Db.addRole(answer);  
+        Db.addRole(answer.title, answer.salary, answer.department);  
     }).then(() => questions());
 };
 
