@@ -19,12 +19,13 @@ function addEmployee(questions) {
         message: "What is the employee's role?"
     },
     {
-        type: 'input',
+        type: 'list',
         name: 'manager',
         message: "Who is the employee's manager?"
+         
     }
 ]).then(answer => {
-        Db.addEmployee(answer);  
+        Db.addEmployee(answer.first_name, answer.last_name, answer.role, answer.manager);  
     }).then(() => questions());
 };
 

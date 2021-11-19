@@ -35,9 +35,9 @@ class Db {
         )
     }
 
-    addEmployee(employee) {
+    addEmployee(first_name, last_name, role, manager) {
         return this.connection.promise().query(
-            'INSERT INTO employees SET ?', employee
+            'INSERT INTO employees SET ?'
         ) 
     }
 
