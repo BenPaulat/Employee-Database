@@ -13,4 +13,4 @@ VALUES
 INSERT INTO employees
 (first_name, last_name, role_id, manager_id)
 VALUES
-('Hubert', 'Farnsworth', 1, NULL), ('Philip', 'Fry', 2, 1), ('Turanga', 'Leela', 2, 1), ('Bender', 'Rodriguez', 2, 1), ('Amy', 'Wong', 5, 1), ('Hermes', 'Conrad', 3, 1), ('John', 'Zoidberg', 4, 1), ('Scruffy', 'Scruffington', 6, 1);
+('Hubert', 'Farnsworth', 1, NULL), ('Philip', 'Fry', 2, 1), ('Turanga', 'Leela', 3, 1), ('Bender', 'Rodriguez', 4, 1), ('Amy', 'Wong', 7, 1), ('Hermes', 'Conrad', 5, 1), ('John', 'Zoidberg', 6, 1), ('Scruffy', 'Scruffington', 8, 1);
