@@ -35,15 +35,16 @@ class Db {
         )
     }
 
-    addEmployee(first_name, last_name, role, manager) {
+    addEmployee(first_name, last_name, role, managerId) {
         return this.connection.promise().query(
-            'INSERT INTO employees SET ?'
+            `INSERT INTO employees (first_name, last_name, role_id, manager_id) 
+            VALUES ('?', '?', (SELECT id FROM role WHERE title = '?'), ${managerId};`, first_name, last_name, role
         ) 
     }
 
-    updateEmployee() {
+    updateEmployee(role, employee_name) {
         return this.connection.promise().query(
-            '', 
+            "UPDATE employees SET role_id = (SELECT id FROM role WHERE title = '?') WHERE CONCAT (first_name, ' ', last_name) = '?';", role, employee_name
         )
     }
 

@@ -1,6 +1,7 @@
 const Db = require('../db');
 const consoleTable = require('console.table');
 const inquire = require('inquirer');
+const employeeList = require('./updateEmployee.js');
 
 function addEmployee(questions) {
     inquire.prompt([{
@@ -21,11 +22,13 @@ function addEmployee(questions) {
     {
         type: 'list',
         name: 'manager',
-        message: "Who is the employee's manager?"
-         
+        message: "Who is the employee's manager?",
+        choices: [employeeList()]
     }
 ]).then(answer => {
-        Db.addEmployee(answer.first_name, answer.last_name, answer.role, answer.manager);  
+        let managerId = answer.manager.split(' ');
+        Db.addEmployee(answer.first_name, answer.last_name, answer.role, managerId[0])
+        console.log(managerId[0]);  
     }).then(() => questions());
 };
 
