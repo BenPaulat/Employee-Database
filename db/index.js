@@ -37,7 +37,6 @@ class Db {
     }
 
     addEmployee(first_name, last_name, role, managerId) {
-        console.log(managerId);
         return this.connection.promise().query(
             `INSERT INTO employees (first_name, last_name, role_id, manager_id) 
             VALUES (?, ?, (SELECT id FROM role WHERE title = ?), ${managerId});`, [first_name, last_name, role]
@@ -46,7 +45,7 @@ class Db {
 
     updateEmployee(role, firstName, lastName) {
         return this.connection.promise().query(
-            `UPDATE employees SET role_id = (SELECT id FROM role WHERE title = '?') WHERE CONCAT (first_name, ' ', last_name) = '${firstName} ${lastName}';`, role
+            `UPDATE employees SET role_id = (SELECT id FROM role WHERE title = ?) WHERE CONCAT (first_name, ' ', last_name) = '${firstName} ${lastName}';`, role
         )
     }
 
@@ -65,6 +64,12 @@ class Db {
     employeeList() {
         return this.connection.promise().query(
             'SELECT CONCAT (id, " ", first_name, " ", last_name) AS employee_name FROM employees;'
+        )
+    }
+
+    noIdNameList() {
+        return this.connection.promise().query(
+            'SELECT CONCAT (first_name, " ", last_name) AS full_name FROM employees;'
         )
     }
 

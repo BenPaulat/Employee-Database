@@ -12,7 +12,8 @@ function addEmployee(questions) {
             }
         )))
     })
-    inquire.prompt([{
+    inquire.prompt([
+    {
         type: 'input',
         name: 'first_name',
         message: "What is the employee's first name?"
@@ -35,8 +36,7 @@ function addEmployee(questions) {
     }
 ]).then(answer => {
         let managerId = answer.manager.split(' ');
-        Db.addEmployee(answer.first_name, answer.last_name, answer.role, managerId[0])
-        console.log(managerId[0]);  
+        Db.addEmployee(answer.first_name, answer.last_name, answer.role, managerId[0]) 
     }).then(() => questions());
 };
 
