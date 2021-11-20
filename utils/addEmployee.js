@@ -4,6 +4,15 @@ const inquire = require('inquirer');
 const employeeList = require('./updateEmployee.js');
 
 function addEmployee(questions) {
+    let empArr = [];
+    let empList = Db.departmentList().then(([data]) => {
+        data.map(element => (
+            empArr.push(
+            {
+                name: element.name,
+            }
+        )))
+    })
     inquire.prompt([{
         type: 'input',
         name: 'first_name',
@@ -23,7 +32,7 @@ function addEmployee(questions) {
         type: 'list',
         name: 'manager',
         message: "Who is the employee's manager?",
-        choices: [employeeList()]
+        choices: empArr
     }
 ]).then(answer => {
         let managerId = answer.manager.split(' ');

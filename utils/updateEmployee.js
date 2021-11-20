@@ -17,20 +17,11 @@ function updateEmployee(questions) {
             choices: [roleList()]
         }
     ]).then(answer =>{
-        Db.updateEmployee(answer.selectedRole, answer.selectedEmployee)
+        let employeeNames = answer.selectedEmployee.split(' ');
+        let firstName = employeeNames[1];
+        let lastName = employeeNames[2];
+        Db.updateEmployee(answer.selectedRole, firstName, lastName);
     }).then(() => questions());
-}
-
-function employeeList() {
-    return this.connection.promise().query(
-        'SELECT CONCAT (id, " ", first_name, " ", last_name) AS employee_name FROM employees;'
-    )
-}
-
-function roleList() {
-    return this.connection.promise().query(
-        'SELECT title FROM role;'
-    )
 }
 
 module.exports = updateEmployee;
