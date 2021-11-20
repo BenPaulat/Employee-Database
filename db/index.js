@@ -37,9 +37,10 @@ class Db {
     }
 
     addEmployee(first_name, last_name, role, managerId) {
+        console.log(managerId);
         return this.connection.promise().query(
             `INSERT INTO employees (first_name, last_name, role_id, manager_id) 
-            VALUES ('?', '?', (SELECT id FROM role WHERE title = '?'), ${managerId};`, [first_name, last_name, role]
+            VALUES (?, ?, (SELECT id FROM role WHERE title = ?), ${managerId});`, [first_name, last_name, role]
         ) 
     }
 

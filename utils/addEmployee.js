@@ -1,15 +1,14 @@
 const Db = require('../db');
 const consoleTable = require('console.table');
 const inquire = require('inquirer');
-const employeeList = require('./updateEmployee.js');
 
 function addEmployee(questions) {
     let empArr = [];
-    let empList = Db.departmentList().then(([data]) => {
+    let empList = Db.employeeList().then(([data]) => {
         data.map(element => (
             empArr.push(
             {
-                name: element.name,
+                name: element.employee_name,
             }
         )))
     })

@@ -2,7 +2,6 @@ const Db = require('../db');
 const consoleTable = require('console.table');
 const inquire = require('inquirer');
 
-
 function addRole(questions) {
     let deptArr = [];
     let deptList = Db.departmentList().then(([data]) => {
