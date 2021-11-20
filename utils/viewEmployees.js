@@ -4,7 +4,7 @@ const inquire = require('inquirer');
 
 function viewEmployees(questions) {
     Db.findAllEmployees().then(([data]) => {
-        console.log(data)
+        console.table(data)
     }).then(() => questions())
 }
 

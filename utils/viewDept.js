@@ -4,7 +4,7 @@ const inquire = require('inquirer');
 
 function viewDept(questions) {
     Db.findAllDepartment().then(([data]) => {
-        console.log(data)
+        console.table(data)
     }).then(() => questions())
 }
 

@@ -4,7 +4,7 @@ const inquire = require('inquirer');
 
 function viewRoles(questions) {
     Db.findAllRoles().then(([data]) => {
-        console.log(data)
+        console.table(data)
     }).then(() => questions())
 }
 
